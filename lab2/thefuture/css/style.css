@@ -31,10 +31,6 @@ p {
 }
 
 @media (min-width: 50em){
-    body{
-        background-color: green;
-    }
-
     main {
         grid-template-columns: 1fr 1fr;
         
@@ -49,9 +45,6 @@ p {
 }
 
 @media (min-width: 60em){
-    body {
-        background-color: blue;
-    }
     main {
         grid-template-columns:1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 35% 35% 35%;
