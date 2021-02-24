@@ -22,10 +22,12 @@ p {
 
 .cloud_infinity {
     background-color: #FFFF04;
+    grid-row: 6;
 }
 
 .future_broken{
     background-color: #63F6F3;
+    grid-row: 3;
 }
 
 @media (min-width: 50em){
