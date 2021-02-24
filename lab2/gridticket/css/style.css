@@ -69,13 +69,10 @@ img {
 
 
 @media (min-width: 50em){
-    body{
-        background-color: green;
-    }
     main{
         grid-template-columns: 2fr 1fr;
         grid-template-rows: 2fr 1fr;
-        margin: 0;
+        padding: 0.5em;
     }
 
     div:nth-child(1){
@@ -86,6 +83,7 @@ img {
 
     .IMD p{
         margin-top: 1em;
+        font-weight: 400;
     }
     
     h1, p {
@@ -115,7 +113,7 @@ img {
         display: grid;
         align-self: center;
         padding-top: 0em;
-        width: 70%;
+        width: 50%;
     }
     
     .footer_ticket {
