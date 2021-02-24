@@ -1,7 +1,7 @@
 # 2imd-webtechadvanced-portfolio
 
 ## Week 1 - GIT
-- [Lab1](./lab1-git/README.md)
+- [Lab1](./lab1-git/README.MD)
 - Screenshot Git-it
 ![Git-it](./lab1-git/git-screenshot.PNG)
 
