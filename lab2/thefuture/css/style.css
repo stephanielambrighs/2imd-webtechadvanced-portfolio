@@ -26,3 +26,11 @@ p {
 .future_broken{
     background-color: #63F6F3;
 }
+
+@media (min-width: 50em){
+    body{
+        background-color: green;
+    }
+
+    
+}
