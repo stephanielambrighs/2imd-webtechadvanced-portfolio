@@ -2,3 +2,27 @@ body {
     box-sizing: border-box;
 }
 
+main {
+    display:grid;
+}
+
+div {
+    padding: 1em;
+    background-color: #F83259;
+    text-align: center;
+    margin: 0.3em;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.cloud_infinity {
+    background-color: #FFFF04;
+}
+
+.future_broken{
+    background-color: #63F6F3;
+}
