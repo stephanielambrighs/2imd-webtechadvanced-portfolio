@@ -11,6 +11,8 @@ var Note = /*#__PURE__*/function () {
     _classCallCheck(this, Note);
 
     this.title = title; // HINT🤩 this.element = this.createElement(title);
+
+    this.element = this.createElement(title);
   }
 
   _createClass(Note, [{
