@@ -34,13 +34,20 @@ class Note {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
+      let input = document.getElementById('taskInput').value;
+      
+      let inputs;
 
-      let inputs = [];
-      let input = {
-        message: document.getElementById('taskInput').value
+      if(localStorage.getItem('inputs') === null){
+        inputs = [];
       }
+      else {
+        inputs = JSON.parse(localStorage.getItem('inputs'));
+      }
+
       inputs.push(input);
       localStorage.setItem('inputList', JSON.stringify(inputs));
+      console.log(inputs);
     }
   
     remove() {

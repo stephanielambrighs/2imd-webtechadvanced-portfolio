@@ -44,12 +44,24 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
-      var inputs = [];
-      var input = {
-        message: document.getElementById('taskInput').value
-      };
+      // let inputs = [];
+      // let input = {
+      //   message: document.getElementById('taskInput').value
+      // }
+      // inputs.push(input);
+      // localStorage.setItem('inputList', JSON.stringify(inputs));
+      var input = document.getElementById('taskInput').value;
+      var inputs;
+
+      if (localStorage.getItem('inputs') === null) {
+        inputs = [];
+      } else {
+        inputs = JSON.parse(localStorage.getItem('inputs'));
+      }
+
       inputs.push(input);
       localStorage.setItem('inputList', JSON.stringify(inputs));
+      console.log(inputs);
     }
   }, {
     key: "remove",
