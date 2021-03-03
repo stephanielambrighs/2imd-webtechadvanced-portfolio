@@ -25,16 +25,17 @@ var Note = /*#__PURE__*/function () {
     }
   }, {
     key: "add",
-    value: function add() {// HINT🤩
+    value: function add() {
+      // HINT🤩
       // this function should append the note to the screen somehow
       // use append
-      //   let note = document.querySelector("#taskList");
-      //   let langs =['TypeScript', 'HTML', 'CSS'];
-      //   let nodes = langs.map(lang => {
-      //     let li = document.createElement('li');
-      //     li.textContent = lang;
-      //     return li;
-      //   });
+      var note = document.querySelector("#taskList");
+      var langs = ['TypeScript', 'HTML', 'CSS'];
+      var nodes = langs.map(function (lang) {
+        var li = document.createElement('li');
+        li.textContent = lang;
+        return li;
+      });
     }
   }, {
     key: "saveToStorage",
@@ -88,12 +89,12 @@ var App = /*#__PURE__*/function () {
         location.reload();
       } // HINT🤩
       // note.add();
-      //note.add();
-      // note.saveToStorage();
+
+
+      note.add(); // note.saveToStorage();
       //note.saveToStorage();
       // clear the text field with .reset in this class
       // if (e.key === "Enter")
-
     }
   }, {
     key: "reset",

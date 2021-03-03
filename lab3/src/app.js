@@ -13,19 +13,20 @@ class Note {
       return newNote;
     }
   
+    
     add() {
       // HINT🤩
       // this function should append the note to the screen somehow
       // use append
 
-    //   let note = document.querySelector("#taskList");
-    //   let langs =['TypeScript', 'HTML', 'CSS'];
+      let note = document.querySelector("#taskList");
+      let langs =['TypeScript', 'HTML', 'CSS'];
 
-    //   let nodes = langs.map(lang => {
-    //     let li = document.createElement('li');
-    //     li.textContent = lang;
-    //     return li;
-    //   });
+      let nodes = langs.map(lang => {
+        let li = document.createElement('li');
+        li.textContent = lang;
+        return li;
+      });
     }
   
     saveToStorage() {
@@ -62,11 +63,13 @@ class Note {
       this.loadNotesFromStorage();
 
       //console.log(note);
+      
     }
   
     loadNotesFromStorage() {
       // HINT🤩
       // load all notes from storage here and add them to the screen
+
     }
   
     createNote(e) {
@@ -80,8 +83,8 @@ class Note {
       }
       // HINT🤩
       // note.add();
-     
-      //note.add();
+      
+      note.add();
 
       // note.saveToStorage();
       //note.saveToStorage();
