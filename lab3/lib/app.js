@@ -40,18 +40,24 @@ var Note = /*#__PURE__*/function () {
     }
   }, {
     key: "saveToStorage",
-    value: function saveToStorage() {// HINT🤩
+    value: function saveToStorage() {
+      // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
+      var inputs = [];
+      var input = {
+        message: document.getElementById('taskInput').value
+      };
+      inputs.push(input);
+      localStorage.setItem('inputList', JSON.stringify(inputs));
     }
   }, {
     key: "remove",
-    value: function remove() {
-      // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
+    value: function remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
-      this.removeChild(this);
+      //this.removeChild(this);
     }
   }]);
 
@@ -73,7 +79,8 @@ var App = /*#__PURE__*/function () {
     // this.loadNotesFromStorage();
 
     this.loadNotesFromStorage(); //console.log(note);
-    // console.log(note);
+
+    console.log(note);
   }
 
   _createClass(App, [{
@@ -91,28 +98,27 @@ var App = /*#__PURE__*/function () {
 
       if (e.key === "Enter") {
         console.log("push enter");
-        e.preventDefault(); //location.reload();
+        e.preventDefault();
       } // HINT🤩
       // note.add();
-      // note.add();
-      // note.add(this);
-      // let note = add.bind(note);
-      // note();
-      // note.saveToStorage();
-      // note.saveToStorage();
-      // clear the text field with .reset in this class
-      // if (e.key === "Enter")
 
+
+      note.add(); // note.saveToStorage();
+
+      note.saveToStorage(); // clear the text field with .reset in this class
+      // if (e.key === "Enter")
 
       if (e.key === "Enter") {
         this.reset();
+        e.preventDefault();
       }
     }
   }, {
     key: "reset",
     value: function reset() {
       // this function should reset the form / clear the text field
-      document.getElementById('taskInput').value = '';
+      document.getElementById('taskInput').value = ''; // or document.forms[0].reset();
+
       return false;
     }
   }]);
@@ -121,3 +127,4 @@ var App = /*#__PURE__*/function () {
 }();
 
 var app = new App();
+var note = new Note();

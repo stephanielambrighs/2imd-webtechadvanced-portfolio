@@ -17,6 +17,7 @@ class Note {
     add() {
       // HINT🤩
       // this function should append the note to the screen somehow
+
       // use append
       // let note = add.bind(this);
       let note = document.querySelector("#taskList");
@@ -33,6 +34,13 @@ class Note {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
+
+      let inputs = [];
+      let input = {
+        message: document.getElementById('taskInput').value
+      }
+      inputs.push(input);
+      localStorage.setItem('inputList', JSON.stringify(inputs));
     }
   
     remove() {
@@ -40,9 +48,11 @@ class Note {
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
-      this.removeChild(this);
+
+
+      //this.removeChild(this);
     }
-  }
+  } 
   
   class App {
     constructor() {
@@ -64,16 +74,18 @@ class Note {
       this.loadNotesFromStorage();
 
       //console.log(note);
-      // console.log(note);
+      console.log(note);
       
     }
   
     loadNotesFromStorage() {
       // HINT🤩
       // load all notes from storage here and add them to the screen
+      
       console.log("Do to: load notes");
     }
-  
+
+    
     createNote(e) {
       // this function should create a new note by using the Note() class
       console.log(this);
@@ -81,36 +93,33 @@ class Note {
       if(e.key === "Enter"){
           console.log("push enter");
           e.preventDefault();
-          //location.reload();
       }
       // HINT🤩
       // note.add();
-      
-      // note.add();
-      
-      // note.add(this);
-      // let note = add.bind(note);
-      // note();
-
+      note.add();
+    
       // note.saveToStorage();
-      // note.saveToStorage();
+      note.saveToStorage();
 
      
       // clear the text field with .reset in this class
       // if (e.key === "Enter")
       if (e.key === "Enter"){
         this.reset();
+        e.preventDefault();
       }
     }
   
     reset() {
       // this function should reset the form / clear the text field
       document.getElementById('taskInput').value='';
+      // or document.forms[0].reset();
       return false;
     }
   }
   
   let app = new App();
+  let note = new Note();
 
   
   
