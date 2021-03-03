@@ -67,7 +67,8 @@ var App = /*#__PURE__*/function () {
     this.txtTodo.addEventListener("keypress", this.createNote.bind(this)); // read up on .bind() -> we need to pass the current meaning of this to the eventListener
     // when the app loads, we can show previously saved noted from localstorage
     // this.loadNotesFromStorage();
-    //console.log(note);
+
+    this.loadNotesFromStorage(); //console.log(note);
   }
 
   _createClass(App, [{
@@ -84,6 +85,7 @@ var App = /*#__PURE__*/function () {
       if (e.key === "Enter") {
         console.log("push");
         e.preventDefault();
+        location.reload();
       } // HINT🤩
       // note.add();
       //note.add();

@@ -59,6 +59,7 @@ class Note {
       // read up on .bind() -> we need to pass the current meaning of this to the eventListener
       // when the app loads, we can show previously saved noted from localstorage
       // this.loadNotesFromStorage();
+      this.loadNotesFromStorage();
 
       //console.log(note);
     }
@@ -75,6 +76,7 @@ class Note {
       if(e.key === "Enter"){
           console.log("push");
           e.preventDefault();
+          location.reload();
       }
       // HINT🤩
       // note.add();
