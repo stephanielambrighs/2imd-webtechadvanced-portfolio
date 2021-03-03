@@ -20,6 +20,7 @@ var Note = /*#__PURE__*/function () {
     value: function createElement(title) {
       var newNote = document.createElement("li"); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
 
+      newNote.addEventListener('click', this.remove.bind(newNote));
       return newNote;
     }
   }, {

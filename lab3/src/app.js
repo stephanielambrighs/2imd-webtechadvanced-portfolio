@@ -9,7 +9,7 @@ class Note {
       let newNote = document.createElement("li");
   
       // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
-  
+      newNote.addEventListener('click', this.remove.bind(newNote));  
       return newNote;
     }
   
