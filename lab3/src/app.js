@@ -1,7 +1,7 @@
 class Note {
     constructor(title) {
       this.title = title;
-      // HINT🤩 this.element = this.createElement(title);
+       // HINT🤩 this.element = this.createElement(title);
       this.element = this.createElement(title);
     }
   
@@ -18,11 +18,11 @@ class Note {
       // HINT🤩
       // this function should append the note to the screen somehow
       // use append
-
+      // let note = add.bind(this);
       let note = document.querySelector("#taskList");
       let langs =['TypeScript', 'HTML', 'CSS'];
 
-      let nodes = langs.map(lang => {
+      note = langs.map(lang => {
         let li = document.createElement('li');
         li.textContent = lang;
         return li;
@@ -40,6 +40,7 @@ class Note {
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
+      this.removeChild(this);
     }
   }
   
@@ -63,13 +64,14 @@ class Note {
       this.loadNotesFromStorage();
 
       //console.log(note);
+      // console.log(note);
       
     }
   
     loadNotesFromStorage() {
       // HINT🤩
       // load all notes from storage here and add them to the screen
-
+      console.log("Do to: load notes");
     }
   
     createNote(e) {
@@ -77,27 +79,38 @@ class Note {
       console.log(this);
 
       if(e.key === "Enter"){
-          console.log("push");
+          console.log("push enter");
           e.preventDefault();
-          location.reload();
+          //location.reload();
       }
       // HINT🤩
       // note.add();
       
-      note.add();
+      // note.add();
+      
+      // note.add(this);
+      // let note = add.bind(note);
+      // note();
 
       // note.saveToStorage();
-      //note.saveToStorage();
+      // note.saveToStorage();
 
      
       // clear the text field with .reset in this class
       // if (e.key === "Enter")
+      if (e.key === "Enter"){
+        this.reset();
+      }
     }
   
     reset() {
       // this function should reset the form / clear the text field
+      document.getElementById('taskInput').value='';
+      return false;
     }
   }
   
   let app = new App();
+
+  
   

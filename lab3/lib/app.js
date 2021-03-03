@@ -29,9 +29,10 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // this function should append the note to the screen somehow
       // use append
+      // let note = add.bind(this);
       var note = document.querySelector("#taskList");
       var langs = ['TypeScript', 'HTML', 'CSS'];
-      var nodes = langs.map(function (lang) {
+      note = langs.map(function (lang) {
         var li = document.createElement('li');
         li.textContent = lang;
         return li;
@@ -45,10 +46,12 @@ var Note = /*#__PURE__*/function () {
     }
   }, {
     key: "remove",
-    value: function remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
+    value: function remove() {
+      // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
+      this.removeChild(this);
     }
   }]);
 
@@ -70,12 +73,15 @@ var App = /*#__PURE__*/function () {
     // this.loadNotesFromStorage();
 
     this.loadNotesFromStorage(); //console.log(note);
+    // console.log(note);
   }
 
   _createClass(App, [{
     key: "loadNotesFromStorage",
-    value: function loadNotesFromStorage() {// HINT🤩
+    value: function loadNotesFromStorage() {
+      // HINT🤩
       // load all notes from storage here and add them to the screen
+      console.log("Do to: load notes");
     }
   }, {
     key: "createNote",
@@ -84,21 +90,30 @@ var App = /*#__PURE__*/function () {
       console.log(this);
 
       if (e.key === "Enter") {
-        console.log("push");
-        e.preventDefault();
-        location.reload();
+        console.log("push enter");
+        e.preventDefault(); //location.reload();
       } // HINT🤩
       // note.add();
-
-
-      note.add(); // note.saveToStorage();
-      //note.saveToStorage();
+      // note.add();
+      // note.add(this);
+      // let note = add.bind(note);
+      // note();
+      // note.saveToStorage();
+      // note.saveToStorage();
       // clear the text field with .reset in this class
       // if (e.key === "Enter")
+
+
+      if (e.key === "Enter") {
+        this.reset();
+      }
     }
   }, {
     key: "reset",
-    value: function reset() {// this function should reset the form / clear the text field
+    value: function reset() {
+      // this function should reset the form / clear the text field
+      document.getElementById('taskInput').value = '';
+      return false;
     }
   }]);
 
