@@ -35,6 +35,7 @@ class Note {
         localStorage.setItem('inputs', '[]');
       }
 
+      // print 1 keer in de array aff en niet meerdere values in de array 
       let inputs = JSON.parse(localStorage.getItem('inputs'));
     
       inputs.push(input);

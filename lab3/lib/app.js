@@ -44,7 +44,8 @@ var Note = /*#__PURE__*/function () {
       if (localStorage.getItem('inputs') === null) {
         // inputs = [];
         localStorage.setItem('inputs', '[]');
-      }
+      } // print 1 keer in de array aff en niet meerdere values in de array 
+
 
       var inputs = JSON.parse(localStorage.getItem('inputs'));
       inputs.push(input);
