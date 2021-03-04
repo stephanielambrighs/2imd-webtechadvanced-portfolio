@@ -29,14 +29,21 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // this function should append the note to the screen somehow
       // use append
-      // let note = add.bind(this);
-      var note = document.querySelector("#taskList");
-      var langs = ['TypeScript', 'HTML', 'CSS'];
-      note = langs.map(function (lang) {
-        var li = document.createElement('li');
-        li.textContent = lang;
-        return li;
-      });
+      // let text = add.bind(this);
+      // let taskList = document.querySelector("#taskList");
+      // let langs =[this.saveToStorage()];
+      // this.newNote = langs.map(lang => {
+      //   this.newNote = document.createTextNode(lang);
+      //   taskList.append(this.newNote);
+      //   return this.newNote;
+      // });
+      var taskList = document.querySelector("#taskList"); // this.taskList.appendChild(this.title, this.createElement.bind(newNote));
+      // taskList.append(this.createElement.newNote);
+
+      var inputvalue = document.getElementById('taskInput').value; // this.newNote = document.createTextNode();
+      // this.newNote.append(text);
+
+      taskList.append(this.newNote); // console.log(text + "hai" );
     }
   }, {
     key: "saveToStorage",
@@ -44,17 +51,16 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
-      var input = document.getElementById('taskInput').value;
-      var inputs;
+      var input = ' ' + document.getElementById('taskInput').value;
 
       if (localStorage.getItem('inputs') === null) {
-        inputs = [];
-      } else {
-        inputs = JSON.parse(localStorage.getItem('inputs'));
+        // inputs = [];
+        localStorage.setItem('inputs', '[]');
       }
 
+      var inputs = JSON.parse(localStorage.getItem('inputs'));
       inputs.push(input);
-      localStorage.setItem('inputList', JSON.stringify(inputs));
+      localStorage.setItem('inputs', JSON.stringify(inputs));
       console.log(inputs);
     }
   }, {

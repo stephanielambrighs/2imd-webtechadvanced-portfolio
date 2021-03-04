@@ -19,34 +19,41 @@ class Note {
       // this function should append the note to the screen somehow
 
       // use append
-      // let note = add.bind(this);
-      let note = document.querySelector("#taskList");
-      let langs =['TypeScript', 'HTML', 'CSS'];
+      // let text = add.bind(this);
+      // let taskList = document.querySelector("#taskList");
+      // let langs =[this.saveToStorage()];
 
-      note = langs.map(lang => {
-        let li = document.createElement('li');
-        li.textContent = lang;
-        return li;
-      });
+      // this.newNote = langs.map(lang => {
+      //   this.newNote = document.createTextNode(lang);
+      //   taskList.append(this.newNote);
+      //   return this.newNote;
+      // });
+
+      let taskList = document.querySelector("#taskList");
+      // this.taskList.appendChild(this.title, this.createElement.bind(newNote));
+      // taskList.append(this.createElement.newNote);
+      let inputvalue = document.getElementById('taskInput').value;
+      // this.newNote = document.createTextNode();
+      // this.newNote.append(text);
+      taskList.append(this.newNote);
+      // console.log(text + "hai" );
     }
   
     saveToStorage() {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
-      let input = document.getElementById('taskInput').value;
+      let input = ' ' + document.getElementById('taskInput').value;
       
-      let inputs;
-
       if(localStorage.getItem('inputs') === null){
-        inputs = [];
-      }
-      else {
-        inputs = JSON.parse(localStorage.getItem('inputs'));
+        // inputs = [];
+        localStorage.setItem('inputs', '[]');
       }
 
+      let inputs = JSON.parse(localStorage.getItem('inputs'));
+    
       inputs.push(input);
-      localStorage.setItem('inputList', JSON.stringify(inputs));
+      localStorage.setItem('inputs', JSON.stringify(inputs));
       console.log(inputs);
     }
   
