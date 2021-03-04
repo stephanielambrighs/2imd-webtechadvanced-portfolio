@@ -28,22 +28,10 @@ var Note = /*#__PURE__*/function () {
     value: function add() {
       // HINT🤩
       // this function should append the note to the screen somehow
-      // use append
-      // let text = add.bind(this);
-      // let taskList = document.querySelector("#taskList");
-      // let langs =[this.saveToStorage()];
-      // this.newNote = langs.map(lang => {
-      //   this.newNote = document.createTextNode(lang);
-      //   taskList.append(this.newNote);
-      //   return this.newNote;
-      // });
-      var taskList = document.querySelector("#taskList"); // this.taskList.appendChild(this.title, this.createElement.bind(newNote));
-      // taskList.append(this.createElement.newNote);
-
-      var inputvalue = document.getElementById('taskInput').value; // this.newNote = document.createTextNode();
-      // this.newNote.append(text);
-
-      taskList.append(this.newNote); // console.log(text + "hai" );
+      var taskList = document.querySelector("#taskList");
+      var inputvalue = document.getElementById('taskInput').value;
+      this.newNote = document.createTextNode(inputvalue);
+      taskList.append(this.newNote);
     }
   }, {
     key: "saveToStorage",

@@ -18,25 +18,10 @@ class Note {
       // HINT🤩
       // this function should append the note to the screen somehow
 
-      // use append
-      // let text = add.bind(this);
-      // let taskList = document.querySelector("#taskList");
-      // let langs =[this.saveToStorage()];
-
-      // this.newNote = langs.map(lang => {
-      //   this.newNote = document.createTextNode(lang);
-      //   taskList.append(this.newNote);
-      //   return this.newNote;
-      // });
-
       let taskList = document.querySelector("#taskList");
-      // this.taskList.appendChild(this.title, this.createElement.bind(newNote));
-      // taskList.append(this.createElement.newNote);
       let inputvalue = document.getElementById('taskInput').value;
-      // this.newNote = document.createTextNode();
-      // this.newNote.append(text);
+      this.newNote = document.createTextNode(inputvalue);
       taskList.append(this.newNote);
-      // console.log(text + "hai" );
     }
   
     saveToStorage() {
