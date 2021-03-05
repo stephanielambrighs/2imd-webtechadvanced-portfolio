@@ -28,8 +28,8 @@ var Note = /*#__PURE__*/function () {
     value: function add() {
       // HINT🤩
       // this function should append the note to the screen somehow
-      var taskList = app.txtTodo;
-      taskList.appendChild(this.element);
+      var taskList = document.querySelector("#taskList").appendChild(this.element);
+      taskList.innerHTML = this.title;
     }
   }, {
     key: "saveToStorage",

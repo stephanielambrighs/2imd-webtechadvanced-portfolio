@@ -17,8 +17,8 @@ class Note {
     add() {
       // HINT🤩
       // this function should append the note to the screen somehow
-      let taskList = app.txtTodo;
-      taskList.appendChild(this.element);
+      let taskList = document.querySelector("#taskList").appendChild(this.element);
+      taskList.innerHTML = this.title;
     }
   
     saveToStorage() {
