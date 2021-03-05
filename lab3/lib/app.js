@@ -89,14 +89,14 @@ var App = /*#__PURE__*/function () {
       // load all notes from storage here and add them to the screen
       // localstorage al bestaat if localstorage 
       if (localStorage.getItem('inputsList') === null) {
-        var note = new Note(this.inputs);
-        note.foreach(function (load) {
-          var post = new Note(load);
-          post.add();
-        }); // arrow and een if 
-      } // let parsed = JSON.stringify(note);
-      // localStorage.setItem('inputsList', parsed);
+        var noteArray = JSON.parse(localStorage.getItem('inputsList'));
 
+        for (var i = 0; i < noteArray.length; i++) {
+          var post = new Note([i]);
+          post.add();
+          console.log(i);
+        }
+      }
 
       console.log("Do to: load notes");
     }
@@ -114,9 +114,7 @@ var App = /*#__PURE__*/function () {
         note.saveToStorage();
         this.reset();
         e.preventDefault();
-      } // Note.add(Note.prototype, this.taskList);
-      // let note = Note(this.taskList);
-      // clear the text field with .reset in this class
+      } // clear the text field with .reset in this class
       // if (e.key === "Enter")
 
     }

@@ -84,17 +84,15 @@ class Note {
 
       // localstorage al bestaat if localstorage 
       if(localStorage.getItem('inputsList') === null){
-        let note = new Note(this.inputs);
-        
-        note.foreach(load => {
-          let post = new Note(load);
+        let noteArray = JSON.parse(localStorage.getItem('inputsList'));
+
+        for(let i = 0; i < noteArray.length; i++){
+          let post = new Note([i]);
           post.add();
-        })
-        // arrow and een if 
+          console.log(i);
+        }
       }
-    
-      // let parsed = JSON.stringify(note);
-      // localStorage.setItem('inputsList', parsed);
+  
       console.log("Do to: load notes");
     }
 
@@ -105,7 +103,6 @@ class Note {
       console.log(this);
       // HINT🤩
       // note.add();
-     
       // note.saveToStorage();
 
       if(e.key === "Enter"){
@@ -115,10 +112,6 @@ class Note {
           this.reset();
           e.preventDefault();
       }
-
-      // Note.add(Note.prototype, this.taskList);
-      // let note = Note(this.taskList);
-
       
       // clear the text field with .reset in this class
       // if (e.key === "Enter")
