@@ -49,8 +49,12 @@ class Note {
       // .removeChild(this)
       // remove the item from screen and from localstorage
 
+      // index gebruiken 
 
-      //this.removeChild(this);
+      // pak je tasklist en remove deze ervan
+      // splice = 1 of meerdere elementen uit 
+      // naam van je array en dan de index mee en hoeveel op die plaats
+      // this.removeChild(this);
     }
   } 
   
@@ -77,7 +81,20 @@ class Note {
     loadNotesFromStorage() {
       // HINT🤩
       // load all notes from storage here and add them to the screen
-      
+
+      // localstorage al bestaat if localstorage 
+      if(localStorage.getItem('inputsList') === null){
+        let note = new Note(this.inputs);
+        
+        note.foreach(load => {
+          let post = new Note(load);
+          post.add();
+        })
+        // arrow and een if 
+      }
+    
+      // let parsed = JSON.stringify(note);
+      // localStorage.setItem('inputsList', parsed);
       console.log("Do to: load notes");
     }
 

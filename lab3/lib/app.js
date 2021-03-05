@@ -54,7 +54,11 @@ var Note = /*#__PURE__*/function () {
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
-      //this.removeChild(this);
+      // index gebruiken 
+      // pak je tasklist en remove deze ervan
+      // splice = 1 of meerdere elementen uit 
+      // naam van je array en dan de index mee en hoeveel op die plaats
+      // this.removeChild(this);
     }
   }]);
 
@@ -83,6 +87,17 @@ var App = /*#__PURE__*/function () {
     value: function loadNotesFromStorage() {
       // HINT🤩
       // load all notes from storage here and add them to the screen
+      // localstorage al bestaat if localstorage 
+      if (localStorage.getItem('inputsList') === null) {
+        var note = new Note(this.inputs);
+        note.foreach(function (load) {
+          var post = new Note(load);
+          post.add();
+        }); // arrow and een if 
+      } // let parsed = JSON.stringify(note);
+      // localStorage.setItem('inputsList', parsed);
+
+
       console.log("Do to: load notes");
     }
   }, {
