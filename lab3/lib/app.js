@@ -12,7 +12,7 @@ var Note = /*#__PURE__*/function () {
 
     this.title = title; // HINT🤩 this.element = this.createElement(title);
 
-    this.element = this.createElement(title);
+    this.element = this.createElement(this.title);
   }
 
   _createClass(Note, [{
@@ -28,10 +28,8 @@ var Note = /*#__PURE__*/function () {
     value: function add() {
       // HINT🤩
       // this function should append the note to the screen somehow
-      var taskList = document.querySelector("#taskList");
-      var inputvalue = document.getElementById('taskInput').value;
-      this.newNote = document.createTextNode(inputvalue);
-      taskList.append(this.newNote);
+      var taskList = app.txtTodo;
+      taskList.appendChild(this.element);
     }
   }, {
     key: "saveToStorage",
@@ -39,17 +37,15 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
-      var input = ' ' + document.getElementById('taskInput').value;
-
-      if (localStorage.getItem('inputs') === null) {
-        // inputs = [];
-        localStorage.setItem('inputs', '[]');
+      // let input = document.querySelector("#taskInput").value;
+      if (localStorage.getItem('inputsList') === null) {
+        localStorage.setItem('inputsList', JSON.stringify([this.title]));
       } // print 1 keer in de array aff en niet meerdere values in de array 
 
 
-      var inputs = JSON.parse(localStorage.getItem('inputs'));
-      inputs.push(input);
-      localStorage.setItem('inputs', JSON.stringify(inputs));
+      var inputs = JSON.parse(localStorage.getItem('inputsList'));
+      inputs.push(this.title);
+      localStorage.setItem('inputsList', JSON.stringify(inputs));
       console.log(inputs);
     }
   }, {
@@ -79,9 +75,7 @@ var App = /*#__PURE__*/function () {
     // when the app loads, we can show previously saved noted from localstorage
     // this.loadNotesFromStorage();
 
-    this.loadNotesFromStorage(); //console.log(note);
-
-    console.log(note);
+    this.loadNotesFromStorage();
   }
 
   _createClass(App, [{
@@ -95,30 +89,27 @@ var App = /*#__PURE__*/function () {
     key: "createNote",
     value: function createNote(e) {
       // this function should create a new note by using the Note() class
-      console.log(this);
-
-      if (e.key === "Enter") {
-        console.log("push enter");
-        e.preventDefault();
-      } // HINT🤩
+      console.log(this); // HINT🤩
       // note.add();
-
-
-      note.add(); // note.saveToStorage();
-
-      note.saveToStorage(); // clear the text field with .reset in this class
-      // if (e.key === "Enter")
+      // note.saveToStorage();
 
       if (e.key === "Enter") {
+        var note = new Note(this.txtTodo.value);
+        note.add();
+        note.saveToStorage();
         this.reset();
         e.preventDefault();
-      }
+      } // Note.add(Note.prototype, this.taskList);
+      // let note = Note(this.taskList);
+      // clear the text field with .reset in this class
+      // if (e.key === "Enter")
+
     }
   }, {
     key: "reset",
     value: function reset() {
       // this function should reset the form / clear the text field
-      document.getElementById('taskInput').value = ''; // or document.forms[0].reset();
+      this.txtTodo.value = ''; // or document.forms[0].reset();
 
       return false;
     }
@@ -128,4 +119,3 @@ var App = /*#__PURE__*/function () {
 }();
 
 var app = new App();
-var note = new Note();
