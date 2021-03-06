@@ -29,7 +29,7 @@ var Note = /*#__PURE__*/function () {
     value: function add() {
       // HINT🤩
       // this function should append the note to the screen somehow
-      document.querySelector("#taskList").appendChild(this.element); // taskList.innerHTML = this.title;
+      document.querySelector("#taskList").appendChild(this.element);
     }
   }, {
     key: "saveToStorage",
@@ -37,24 +37,25 @@ var Note = /*#__PURE__*/function () {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
-      // let input = document.querySelector("#taskInput").value;
       if (localStorage.getItem('inputsList') === null) {
         localStorage.setItem('inputsList', JSON.stringify([this.title]));
-      } // print 1 keer in de array aff en niet meerdere values in de array 
-
-
-      var inputs = JSON.parse(localStorage.getItem('inputsList'));
-      inputs.push(this.title);
-      localStorage.setItem('inputsList', JSON.stringify(inputs));
-      console.log(inputs);
+      } else {
+        // print 1 keer in de array aff en niet meerdere values in de array 
+        var inputs = JSON.parse(localStorage.getItem('inputsList'));
+        inputs.push(this.title);
+        localStorage.setItem('inputsList', JSON.stringify(inputs));
+        console.log(inputs);
+      }
     }
   }, {
     key: "remove",
-    value: function remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
+    value: function remove() {
+      // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
-      // index gebruiken 
+      var taskList = document.querySelector("#taskList");
+      taskList.removeChild(this); // index gebruiken 
       // take the ul
       // app.txtTodo;
       // this.inputs.splice(x,1);
@@ -95,7 +96,7 @@ var App = /*#__PURE__*/function () {
       // HINT🤩
       // load all notes from storage here and add them to the screen
       // localstorage al bestaat if localstorage 
-      if (localStorage.getItem('inputsList') === null) {
+      if (localStorage.getItem('inputsList') != null) {
         var noteArray = JSON.parse(localStorage.getItem('inputsList'));
 
         for (var i = 0; i < noteArray.length; i++) {
@@ -104,8 +105,6 @@ var App = /*#__PURE__*/function () {
           console.log(i);
         }
       }
-
-      console.log("Do to: load notes");
     }
   }, {
     key: "createNote",

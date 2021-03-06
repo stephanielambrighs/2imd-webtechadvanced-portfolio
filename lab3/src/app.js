@@ -19,7 +19,6 @@ class Note {
       // HINT🤩
       // this function should append the note to the screen somehow
       document.querySelector("#taskList").appendChild(this.element);
-      // taskList.innerHTML = this.title;
     }
   
     saveToStorage() {
@@ -27,19 +26,19 @@ class Note {
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
 
-      // let input = document.querySelector("#taskInput").value;
+
       
       if(localStorage.getItem('inputsList') === null){
         localStorage.setItem('inputsList', JSON.stringify([this.title]));
+      }else {
+        // print 1 keer in de array aff en niet meerdere values in de array 
+        let inputs = JSON.parse(localStorage.getItem('inputsList'));
+        inputs.push(this.title);
+        localStorage.setItem('inputsList', JSON.stringify(inputs));
+        console.log(inputs);
       }
       
-      // print 1 keer in de array aff en niet meerdere values in de array 
-      let inputs = JSON.parse(localStorage.getItem('inputsList'));
-    
-    
-      inputs.push(this.title);
-      localStorage.setItem('inputsList', JSON.stringify(inputs));
-      console.log(inputs);
+
 
 
     }
@@ -49,6 +48,13 @@ class Note {
       // in this function, 'this' will refer to the current note element
       // .removeChild(this)
       // remove the item from screen and from localstorage
+
+
+      let taskList = document.querySelector("#taskList");
+      taskList.removeChild(this);
+
+
+
 
       // index gebruiken 
       // take the ul
@@ -95,7 +101,7 @@ class Note {
       // load all notes from storage here and add them to the screen
 
       // localstorage al bestaat if localstorage 
-      if(localStorage.getItem('inputsList') === null){
+      if(localStorage.getItem('inputsList') != null){
         let noteArray = JSON.parse(localStorage.getItem('inputsList'));
 
         for(let i = 0; i < noteArray.length; i++){
@@ -104,8 +110,6 @@ class Note {
           console.log(i);
         }
       }
-  
-      console.log("Do to: load notes");
     }
 
     
@@ -121,6 +125,7 @@ class Note {
           let note = new Note(this.txtTodo.value);
           note.add();
           note.saveToStorage();
+
           this.reset();
           e.preventDefault();
       }
