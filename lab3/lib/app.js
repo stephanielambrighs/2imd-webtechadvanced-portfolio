@@ -18,7 +18,8 @@ var Note = /*#__PURE__*/function () {
   _createClass(Note, [{
     key: "createElement",
     value: function createElement(title) {
-      var newNote = document.createElement("li"); // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
+      var newNote = document.createElement("li");
+      newNote.innerHTML = title; // HINT🤩 newNote.addEventListener('click', this.remove.bind(newNote));
 
       newNote.addEventListener('click', this.remove.bind(newNote));
       return newNote;
@@ -28,8 +29,7 @@ var Note = /*#__PURE__*/function () {
     value: function add() {
       // HINT🤩
       // this function should append the note to the screen somehow
-      var taskList = document.querySelector("#taskList").appendChild(this.element);
-      taskList.innerHTML = this.title;
+      document.querySelector("#taskList").appendChild(this.element); // taskList.innerHTML = this.title;
     }
   }, {
     key: "saveToStorage",
@@ -55,9 +55,16 @@ var Note = /*#__PURE__*/function () {
       // .removeChild(this)
       // remove the item from screen and from localstorage
       // index gebruiken 
+      // take the ul
+      // app.txtTodo;
+      // this.inputs.splice(x,1);
+      // localstorage.removeItem('inputsList');
       // pak je tasklist en remove deze ervan
       // splice = 1 of meerdere elementen uit 
       // naam van je array en dan de index mee en hoeveel op die plaats
+      // op clickt de value erui halen uit de list
+      // value weet dan gaat je lopen over je localstorage 
+      // is array string dat je de 
       // this.removeChild(this);
     }
   }]);
@@ -92,7 +99,7 @@ var App = /*#__PURE__*/function () {
         var noteArray = JSON.parse(localStorage.getItem('inputsList'));
 
         for (var i = 0; i < noteArray.length; i++) {
-          var post = new Note([i]);
+          var post = new Note(noteArray[i]);
           post.add();
           console.log(i);
         }
