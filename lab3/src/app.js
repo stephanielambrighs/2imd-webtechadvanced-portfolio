@@ -37,9 +37,6 @@ class Note {
         localStorage.setItem('inputsList', JSON.stringify(inputs));
         console.log(inputs);
       }
-      
-
-
 
     }
   
@@ -51,28 +48,16 @@ class Note {
 
 
       let taskList = document.querySelector("#taskList");
+    
+
+      let indexToDelete = [...taskList.children].indexOf(this);
+      let inputs = JSON.parse(localStorage.getItem('inputsList'));
+
+      inputs.splice(indexToDelete, 1);
+      localStorage.setItem('inputsList', JSON.stringify(inputs));
+
       taskList.removeChild(this);
-
-
-
-
-      // index gebruiken 
-      // take the ul
-      // app.txtTodo;
-
-      // this.inputs.splice(x,1);
-      
-      // localstorage.removeItem('inputsList');
-
-      // pak je tasklist en remove deze ervan
-      // splice = 1 of meerdere elementen uit 
-      // naam van je array en dan de index mee en hoeveel op die plaats
-
-
-      // op clickt de value erui halen uit de list
-      // value weet dan gaat je lopen over je localstorage 
-      // is array string dat je de 
-      // this.removeChild(this);
+      console.log(indexToDelete);
     }
   } 
   
