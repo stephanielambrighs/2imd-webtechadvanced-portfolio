@@ -37,9 +37,26 @@ class App {
     }
 
     showAdds(temperature){
-
+       let addId = this.getAddIdByTemperature(temperature);
     }
     
+    getAddIdByTemperature(temperature){
+        let summerId = 322;
+        let winterId = 66;
+        let midSeasonId = 38;
+        if(temperature > 18){
+            // zomer add
+            return summerId;
+        }
+        else if(temperature < 4){
+            // winter add
+            return winterId
+        }
+        else{
+            // tussen seizoen add
+            return midSeasonId;
+        }
+    }
 
 }
 
