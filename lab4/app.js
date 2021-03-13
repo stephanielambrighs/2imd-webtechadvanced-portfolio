@@ -38,6 +38,7 @@ class App {
 
     showAdds(temperature){
        let addId = this.getAddIdByTemperature(temperature);
+       this.getAddFromDecathlon(addId);
     }
     
     getAddIdByTemperature(temperature){
@@ -46,16 +47,32 @@ class App {
         let midSeasonId = 38;
         if(temperature > 18){
             // zomer add
+            console.log(`temperature is ${temperature}, returning id ${summerId}`);
             return summerId;
         }
         else if(temperature < 4){
             // winter add
-            return winterId
+            console.log(`temperature is ${temperature}, returning id ${winterId}`);
+            return winterId;
         }
         else{
             // tussen seizoen add
+            console.log(`temperature is ${temperature}, returning id ${midSeasonId}`);
             return midSeasonId;
         }
+    }
+
+    getAddFromDecathlon(id){
+        let url = `https://sports.api.decathlon.com/sports/${id}`;
+        fetch(url).then(response =>{
+            console.log(url);
+            return response.json();
+        }).then(data => {
+            console.log(data);
+        }).catch(error => {
+            // als dit faalt -> dan geeft men deze error terug 
+            console.log(error);
+        });
     }
 
 }
