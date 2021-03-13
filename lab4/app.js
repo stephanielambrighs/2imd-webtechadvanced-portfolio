@@ -22,17 +22,22 @@ class App {
     }
 
     getWeather(){
-        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.long}&appid=${this.apiKey}`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.long}&appid=${this.apiKey}&units=metric`;
         // // response = veel data bevat 
         fetch(url).then(response =>{
             console.log(response);
             return response.json();
         }).then(data => {
-            console.log(data);
+            let temperature = data.main.temp;
+            this.showAdds(temperature);
         }).catch(error => {
             // als dit faalt -> dan geeft men deze error terug 
             console.log(error);
         });
+    }
+
+    showAdds(temperature){
+
     }
     
 
