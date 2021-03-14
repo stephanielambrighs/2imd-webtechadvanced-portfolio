@@ -53,7 +53,6 @@ class App {
 
     getWeatherFromApi(){
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.long}&appid=${this.apiKey}&units=metric`;
-        // // response = veel data bevat 
         fetch(url)
             .then(response =>{
                 console.log(response);
@@ -74,10 +73,7 @@ class App {
         let dict = {};
         dict[dataName]=data;
         dict["timestamp"]=Date.now();
-
-
         localStorage.setItem(dataName, JSON.stringify(dict));
-
     }
 
     showAdds(temperature){
