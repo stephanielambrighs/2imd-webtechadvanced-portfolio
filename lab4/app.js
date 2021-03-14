@@ -88,16 +88,19 @@ class App {
         if(temperature > 18){
             // zomer add
             console.log(`temperature is ${temperature}, returning id ${summerId}`);
+            document.querySelector(".temperature").innerHTML = "De temperatuur is "+ temperature + "°C";
             return summerId;
         }
         else if(temperature < 4){
             // winter add
             console.log(`temperature is ${temperature}, returning id ${winterId}`);
+            document.querySelector(".temperature").innerHTML = "De temperatuur is "+ temperature + "°C";
             return winterId;
         }
         else{
             // tussen seizoen add
             console.log(`temperature is ${temperature}, returning id ${midSeasonId}`);
+            document.querySelector(".temperature").innerHTML = "De temperatuur is "+ temperature + "°C";
             return midSeasonId;
         }
     }
@@ -108,6 +111,7 @@ class App {
             console.log(url);
             return response.json();
         }).then(data => {
+
             console.log(data);
         }).catch(error => {
             // als dit faalt -> dan geeft men deze error terug 
