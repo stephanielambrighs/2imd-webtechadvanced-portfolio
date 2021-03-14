@@ -22,16 +22,23 @@ class App {
     }
 
     getWeather(){
-        if(false){
-            this.getWeatherFromCache();
+        let temperature = this.getWeatherFromCache();
+        if(temperature == null){
+            this.getWeatherFromApi();
         }
         else{
-            this.getWeatherFromApi();
+            this.showAdds(temperature);
         }
     }
 
     getWeatherFromCache(){
-
+        if(localStorage.getItem('temperature') != null){
+            let temperature = JSON.parse(localStorage.getItem('temperature'));
+            return temperature;
+        }
+        else{
+            return null;
+        }
     }
 
     getWeatherFromApi(){
