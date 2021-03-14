@@ -22,18 +22,39 @@ class App {
     }
 
     getWeather(){
+        if(false){
+            this.getWeatherFromCache();
+        }
+        else{
+            this.getWeatherFromApi();
+        }
+    }
+
+    getWeatherFromCache(){
+
+    }
+
+    getWeatherFromApi(){
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.long}&appid=${this.apiKey}&units=metric`;
         // // response = veel data bevat 
-        fetch(url).then(response =>{
-            console.log(response);
-            return response.json();
-        }).then(data => {
-            let temperature = data.main.temp;
-            this.showAdds(temperature);
-        }).catch(error => {
-            // als dit faalt -> dan geeft men deze error terug 
-            console.log(error);
-        });
+        fetch(url)
+            .then(response =>{
+                console.log(response);
+                return response.json();})
+            .then(data => {
+                console.log(data);
+                let temperature = data.main.temp;
+                this.saveToStorage('temperature', temperature);
+                this.showAdds(temperature);
+            })
+            .catch(error => {
+                // als dit faalt -> dan geeft men deze error terug 
+                console.log(error);
+            });
+    }
+
+    saveToStorage(dataName, data){
+        localStorage.setItem(dataName, JSON.stringify(data));
     }
 
     showAdds(temperature){
@@ -75,6 +96,7 @@ class App {
         });
     }
 
+    
 }
 
 let app = new App();
