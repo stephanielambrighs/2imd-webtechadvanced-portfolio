@@ -8,12 +8,6 @@ body {
     height: 600px;
 }
 
-#weather {
-    background-image: url(https://images.pexels.com/photos/6401654/pexels-photo-6401654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
-    background-repeat: no-repeat;
-    background-size: 300px 600px;
-}
-
 
 .logo {
     background-color: #1482C2;
@@ -27,15 +21,15 @@ body {
 }
 
 h1 {
-    font-family: droid-sans,sans-serif;
-    font-weight: 500;
+    font-family: novecento-sans-narrow, sans-serif;
+    font-weight: 700;
     font-style: normal;
     background-color: #A8CA48;
     color: white;
-    font-size: 1.7em;
+    font-size: 2.2em;
     text-align: center;
-    margin-top: 17em;
-    height: 80px;
+    margin-top: 12em;
+    height: 90px;
 }
 
 .icon {
@@ -47,11 +41,11 @@ h1 {
 h3 {
     background-color: #1482C2;
     color: white;
-    font-family: novecento-sans-narrow, sans-serif;
+    font-size: 1.1em;
+    text-align: center;
+    margin-top: -25px;
+    height: 55px;
+    font-family: droid-sans,sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 1.5em;
-    text-align: center;
-    margin-top: -20px;
-    height: 50px;
 }

@@ -82,25 +82,26 @@ class App {
     }
     
     getAddIdByTemperature(temperature){
+        //let sportname = getAddFromDecathlon(data);
         let summerId = 322;
         let winterId = 66;
         let midSeasonId = 38;
         if(temperature > 18){
             // zomer add
             console.log(`temperature is ${temperature}, returning id ${summerId}`);
-            document.querySelector(".temperature").innerHTML = "De temperatuur is "+ temperature + "°C";
+            document.querySelector(".temperature").innerHTML = "de temperatuur is "+ temperature + "°C";
             return summerId;
         }
         else if(temperature < 4){
             // winter add
             console.log(`temperature is ${temperature}, returning id ${winterId}`);
-            document.querySelector(".temperature").innerHTML = "De temperatuur is "+ temperature + "°C";
+            document.querySelector(".temperature").innerHTML = "de temperatuur is "+ temperature + "°C";
             return winterId;
         }
         else{
             // tussen seizoen add
             console.log(`temperature is ${temperature}, returning id ${midSeasonId}`);
-            document.querySelector(".temperature").innerHTML = "De temperatuur is "+ temperature + "°C";
+            document.querySelector(".temperature").innerHTML = "de temperatuur is "+ temperature + "°C";
             return midSeasonId;
         }
     }
@@ -111,8 +112,13 @@ class App {
             console.log(url);
             return response.json();
         }).then(data => {
-
-            console.log(data);
+            let name = data.data.attributes.name;
+            let image = data.data.relationships.images.data[0].url;
+            document.querySelector(".sport").innerHTML = "De sport die je kan uitvoeren is: "+ name;
+            document.querySelector("#weather").style.background = `url(${image})`;
+            document.querySelector("#weather").style.backgroundRepeat = "no-repeat";
+            document.querySelector("#weather").style.backgroundSize = "450px 600px";
+            
         }).catch(error => {
             // als dit faalt -> dan geeft men deze error terug 
             console.log(error);
