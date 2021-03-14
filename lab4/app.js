@@ -4,6 +4,7 @@ class App {
         this.lat;
         this.long;
         this.apiKey = "002ff7786663a4aec24da7cb1bf783e3";
+        this.cacheTimeoutSeconds = 3600;
     }
 
     getLocation(){
@@ -22,12 +23,21 @@ class App {
     }
 
     getWeather(){
-        let temperature = this.getWeatherFromCache();
-        if(temperature == null){
+        let temperaturedict = this.getWeatherFromCache();
+        if(temperaturedict == null){
             this.getWeatherFromApi();
         }
         else{
-            this.showAdds(temperature);
+            let newTimestamp =  Date.now();
+            let oldTimestamp = temperaturedict['timestamp'];
+            let cacheAge = newTimestamp - oldTimestamp;
+            console.log("Old time: " + oldTimestamp);
+            console.log("New time: " + newTimestamp);
+            if(cacheAge >= this.cacheTimeoutSeconds*1000){
+                this.getWeatherFromApi();
+            }else{
+                this.showAdds(temperaturedict['temperature']);
+            }   
         }
     }
 
@@ -61,7 +71,13 @@ class App {
     }
 
     saveToStorage(dataName, data){
-        localStorage.setItem(dataName, JSON.stringify(data));
+        let dict = {};
+        dict[dataName]=data;
+        dict["timestamp"]=Date.now();
+
+
+        localStorage.setItem(dataName, JSON.stringify(dict));
+
     }
 
     showAdds(temperature){
