@@ -117,7 +117,7 @@ class App {
             document.querySelector(".sport").innerHTML = "De sport die je kan uitvoeren is: "+ name;
             document.querySelector("#weather").style.background = `url(${image})`;
             document.querySelector("#weather").style.backgroundRepeat = "no-repeat";
-            document.querySelector("#weather").style.backgroundSize = "450px 600px";
+            document.querySelector("#weather").style.backgroundSize = "300px 480px";
             
         }).catch(error => {
             // als dit faalt -> dan geeft men deze error terug 
