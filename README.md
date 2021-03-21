@@ -12,3 +12,13 @@
 ![flexbox-froggy](./lab2/flexbox-froggy.PNG)
 - Grid Garden 
 ![grid-garden](./lab2/grid-garden.PNG)
+
+## Week 3 - ES6 
+- [Lab3](./lab3/README.md)
+- [Link to Codesandbox](https://codesandbox.io/s/lab3-todo-app-forked-jg9xz?file=/index.html)
+![ES6](./lab3/es6.PNG)
+
+## Week 4 - App prototype
+- [lab4](./lab4/README.md)
+- [Link to Codesandbox](https://codesandbox.io/s/lab-4-app-prototype-iehp2?file=/index.html)
+![App Prototype](./lab4/app-prototype.PNG)
