@@ -8,5 +8,8 @@ router.get("/", messagesController.getAll);
 //getId
 router.get("/:id", messagesController.getId);
 
+//post 
+router.post("/", messagesController.create);
+
 
 module.exports = router;
