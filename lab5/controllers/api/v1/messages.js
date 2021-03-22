@@ -1,11 +1,23 @@
 
 const getAll = (req, res) => {
-    res.json({
-        "status" : "success",
-        "data": { 
-            "message" : "GETTING messages"
-        }
-    });
+    // get username  
+    if(req.query.user){
+        res.json({
+            "status" : "success",
+            "data": { 
+                "message" : "GETTING message for username = " + req.query.user
+            }
+        });
+    }
+    else{
+        res.json({
+            "status" : "success",
+            "data": { 
+                "message" : "GETTING messages"
+            }
+        });
+    }
+    
 };
 
 const getId = (req, res) => {
