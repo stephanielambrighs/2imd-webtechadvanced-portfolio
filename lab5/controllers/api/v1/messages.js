@@ -38,12 +38,6 @@ const create = (req, res) => {
         "status" : "success",
         "data" : {
             "message" : "POSTING a new message for user " + name
-        },
-        "body" : {
-            "message" : {
-                "user" : name, 
-                "text" : "nodejs isn’t hard, or is it?"
-            }
         }
     });
     
