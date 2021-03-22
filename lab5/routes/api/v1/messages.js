@@ -11,5 +11,7 @@ router.get("/:id", messagesController.getId);
 //post 
 router.post("/", messagesController.create);
 
+//put
+router.put("/:id", messagesController.update);
 
 module.exports = router;
