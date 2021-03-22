@@ -22,3 +22,8 @@
 - [lab4](./lab4/README.md)
 - [Link to Codesandbox](https://codesandbox.io/s/lab-4-app-prototype-iehp2?file=/index.html)
 ![App Prototype](./lab4/app-prototype.PNG)
+
+## Week 5 - NodeJs basics
+- [lab5](./lab5/README.md)
+- [Link to Codepen](https://codepen.io/Tauriel/pen/zYogyVx)
+![NodeJs basics](./lab5/nodejs-basics.PNG)
