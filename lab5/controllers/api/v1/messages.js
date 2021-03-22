@@ -19,19 +19,22 @@ const getId = (req, res) => {
 
 const create = (req, res) => {
     //fix dynamic name
+    
+    let name = "Pickachu";
 
     res.json({
         "status" : "success",
         "data" : {
-            "message" : "POSTING a new message for user " 
+            "message" : "POSTING a new message for user " + name
         },
         "body" : {
             "message" : {
-                "user" : "Pikachu", 
+                "user" : name, 
                 "text" : "nodejs isn’t hard, or is it?"
             }
         }
     });
+    
 };
 
 module.exports.getAll = getAll;
