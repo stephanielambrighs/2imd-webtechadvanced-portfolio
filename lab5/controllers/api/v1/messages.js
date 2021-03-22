@@ -32,7 +32,7 @@ const getId = (req, res) => {
 const create = (req, res) => {
     //fix dynamic name
     
-    let name = "Pickachu";
+    let name = "pickachu";
 
     res.json({
         "status" : "success",
