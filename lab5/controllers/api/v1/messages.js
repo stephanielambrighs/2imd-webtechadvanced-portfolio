@@ -38,7 +38,6 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
-
     res.json({
         "status" : "success",
         "data" : {
@@ -47,7 +46,17 @@ const update = (req, res) => {
     });
 };
 
+const remove = (req, res) => {
+    res.json({
+        "status" : "success",
+        "data" : {
+            "message" : "DELETING a message with ID = " + req.params.id
+        }
+    });
+};
+
 module.exports.getAll = getAll;
 module.exports.getId = getId;
 module.exports.create = create;
 module.exports.update = update;
+module.exports.remove = remove;
