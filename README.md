@@ -27,3 +27,8 @@
 - [lab5](./lab5/README.md)
 - [Link to Codepen](https://codepen.io/Tauriel/pen/zYogyVx)
 ![NodeJs basics](./lab5/nodejs-basics.PNG)
+
+## Week 6 - Websockets
+- [lab6](https://github.com/stephanielambrighs/Lab6/blob/main/README.md)
+- [Link to demo in gif](https://github.com/stephanielambrighs/Lab6/blob/main/demo.gif)
+- [Link to Heroku application](https://imd-athletes.herokuapp.com/) 
